@@ -1,0 +1,13 @@
+<div ng-controller="getCtrl" ng-init="getTodo()">
+    <div class="to-do-list">
+        <div class="col-md-2">
+            <input type="checkbox">
+        </div>
+        <div class="col-md-6">{{todo.text}}
+        </div>
+        <div class="col-md-4 btns">
+            <input type="button" class="btn btn-danger pull right" value="Delete"/>
+            <input type="button" class="btn btn-primary pull right" value="Edit"/>
+        </div>
+    </div>
+</div>

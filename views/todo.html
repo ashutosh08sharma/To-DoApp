@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title> To-Do App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <!-- <script src="/public/javascripts/todo/todoClient.js"></script> -->
+    <script src="/public/javascripts/todo/addtodo.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel='stylesheet' href="/public/stylesheets/style.css"/>
+</head>
+<body ng-app="todoApp" ng-controller="addCtrl">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">To-Do App</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">To Do App</a>
+        </div>
+    </div><!--/.nav-collapse -->
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div>
+                <div class="add-todo-form-center" ng-init = "getTodo()">
+                    <h1 style="align-content: center"> Add Todo</h1>
+                    <div class="col-lg-12">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Add Todo" ng-model="add">
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" ng-click="addTodo()"  >Add!</button>
+                        </span>
+                        </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="to-do-list" ng-repeat="todo in todos">
+                        <div class="col-md-2">
+                            <input type="checkbox"  ng-model="todo.isComplelted"/>
+                            {{todo.isComplelted}}
+                        </div>
+                        <div class="col-md-6">{{todo.text}}
+                        </div>
+                        <div class="col-md-4 btns">
+                                <input type="button" class="btn btn-danger pull right" ng-click="delete(todo)" value="Delete"/>
+                            <input type="button" class="btn btn-primary pull right" value="Edit"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>
