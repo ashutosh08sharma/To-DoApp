@@ -10,7 +10,6 @@ var app = angular.module('todoApp',[])
                 url: '/api/todos',
             }).then(function (data) {
                 $scope.todos = data.data;
-                console.log("result" + data.data);
             }, function (err) {
                 console.log("err" + err);
             });
@@ -25,8 +24,7 @@ var app = angular.module('todoApp',[])
                 },
                 url: '/api/todo',
             }).then(function(data){
-                console.log("result"+ data.data);
-                $scope.todos =data.data;
+                $scope.todos.push(data.data);
             },function(err){
                 console.log("err"+err);
             });
@@ -34,14 +32,13 @@ var app = angular.module('todoApp',[])
 
         $scope.delete = function(todo) {
                 var res = JSON.stringify(todo)
-            console.log("item"+ JSON.stringify(todo));
             if (todo.isComplelted === true) {
                 $http({
                     method: 'Delete',
                     url: '/api/todo/'+todo._id
                 }).then(function (data) {
-                    $scope.todos = data;
-                    Console.log("Delete" + data.data);
+                    $scope.todos =data.data;
+                    console.log("Delete", data);
                 }, function (err) {
                     console.log("Error" + err);
                 });

@@ -13,7 +13,6 @@ router.get('/todos', function(req, res, next) {
      else{
        res.json(todos);
      }
-
    })
 });
 // get single todo
@@ -32,7 +31,6 @@ router.get('/todo/:id', function(req, res, next) {
 // post a todo
 router.post('/todo', function(req,res,next){
     var todo = req.body;
-    console.log("req" + todo)
      if(!todo.text || (todo.isCompleted)){
          res.status(400);
          res.send("Error");
@@ -93,7 +91,15 @@ router.delete('/todo/:id', function(req,res,next) {
                 });
             }
             else {
-                res.send(result);
+                db.todos.find(function(err,todos){
+                    if(err){
+                        res.status(200);
+                        res.send(err);
+                    }
+                    else{
+                        res.json(todos);
+                    }
+                });
             }
         });
 

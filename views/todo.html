@@ -44,7 +44,7 @@
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Add Todo" ng-model="add">
                         <span class="input-group-btn">
-                        <button class="btn btn-default" type="button" ng-click="addTodo()"  >Add!</button>
+                        <button class="btn btn-primary" type="button" ng-click="addTodo()">Add</button>
                         </span>
                         </div>
                     <br>
@@ -53,13 +53,11 @@
                     <div class="to-do-list" ng-repeat="todo in todos">
                         <div class="col-md-2">
                             <input type="checkbox"  ng-model="todo.isComplelted"/>
-                            {{todo.isComplelted}}
                         </div>
                         <div class="col-md-6">{{todo.text}}
                         </div>
                         <div class="col-md-4 btns">
                                 <input type="button" class="btn btn-danger pull right" ng-click="delete(todo)" value="Delete"/>
-                            <input type="button" class="btn btn-primary pull right" value="Edit"/>
                         </div>
                     </div>
                 </div>
